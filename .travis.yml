@@ -1,15 +1,22 @@
 language: go
 
-matrix:
-  include:
-  -  os: linux
-     sudo: required
-     services:
-       - docker
-  -  os: osx
-
 go:
   - 1.13.x
+
+matrix:
+  include:
+  - arch: amd64
+    os: linux
+    sudo: required
+    services:
+      - docker
+  - arch: ppc64le
+    os: linux
+    sudo: required
+    services:
+      - docker
+  - arch: amd64
+    os: osx
 
 notifications:
   email: false
